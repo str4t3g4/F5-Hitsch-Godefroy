@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/allCrypto_Frag">
+
+    <fragment
+        android:id="@+id/allCrypto_Frag"
+        android:name="com.example.cryptoflow.AllCryptoFrag"
+        android:label="fragment_all_crypto_"
+        tools:layout="@layout/fragment_all_crypto_" >
+        <action
+            android:id="@+id/search"
+            app:destination="@id/search_Frag" />
+    </fragment>
+    <fragment
+        android:id="@+id/search_Frag"
+        android:name="com.example.cryptoflow.ConvertFrag"
+        android:label="fragment_search_"
+        tools:layout="@layout/fragment_convert_" >
+        <argument
+            android:name="crypto_name"
+            app:argType="string" />
+        <argument android:name="crypto_value"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CryptoFlow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_menu_media">Media</string>
+    <string name="navigation_menu_flow">Flow</string>
+    <string name="navigation_menu_convert">Convert</string>
+    <string name="image_recycler_coin_item">logo_coin</string>
+    <string name="image_recycler_news_item">image_article</string>
+</resources>
