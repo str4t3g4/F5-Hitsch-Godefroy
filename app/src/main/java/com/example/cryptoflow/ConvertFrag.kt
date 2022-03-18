@@ -70,7 +70,8 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
                 textCoin.text = numberToConvert.text.toString() + " " + coinFound?.name.toString()
                 imageCoin.load(coinFound?.image)
                 val convert : Double = numberToConvert.text.toString().toDouble() * coinFound!!.current_price
-                numberCoin.text = "$convert $device"
+                val convertFormat = String.format("%.1f",convert)
+                numberCoin.text = "$convertFormat $device"
             }
 
         }
