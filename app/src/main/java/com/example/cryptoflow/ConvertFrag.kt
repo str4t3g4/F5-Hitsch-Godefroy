@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -37,6 +38,7 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         val numberCoin = view.findViewById<TextView>(R.id.convert_number)
         val numberToConvert = view.findViewById<EditText>(R.id.search_number)
         val imageConvert = view.findViewById<ImageView>(R.id.image_convert)
+        imageConvert.isVisible = false
 
         monSuperAdapter = activity?.let { ArrayAdapter(it.baseContext, android.R.layout.simple_spinner_item, mainActivity.coins) }.also { adapter -> adapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
         spinner.adapter = monSuperAdapter
@@ -56,7 +58,8 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         // Function Convert crypto in Euro
         fun Convert(){
             val coinFound : Coin? = mainActivity.coins.firstOrNull{ coin -> coin.name == crypto}
-            imageConvert.load(R.drawable.ic_round_convert_24)
+            //imageConvert.load(R.drawable.ic_round_convert_24)
+            imageConvert.isVisible = true
             textCoin.text = numberToConvert.text.toString() + " " + coinFound?.name.toString()
             imageCoin.load(coinFound?.image)
             val convert : Double = numberToConvert.text.toString().toDouble() * coinFound!!.current_price
@@ -68,7 +71,6 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
             setOnEditorActionListener { _, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     callback.invoke()
-                    true
                 }
                 false
             }
