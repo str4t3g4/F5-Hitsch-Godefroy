@@ -7,4 +7,5 @@
     <string name="navigation_menu_convert">Convert</string>
     <string name="image_recycler_coin_item">logo_coin</string>
     <string name="image_recycler_news_item">image_article</string>
+    <string name="hint_search_numbers">Convert Number</string>
 </resources>

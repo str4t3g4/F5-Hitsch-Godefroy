@@ -5,6 +5,7 @@ import android.content.Context
 
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -31,6 +32,11 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         super.onViewCreated(view, savedInstanceState)
         val spinner = view.findViewById<Spinner>(R.id.spinner)
         val buttonConvert = view.findViewById<Button>(R.id.button_convert)
+        val textCoin = view.findViewById<TextView>(R.id.convert_coin)
+        val imageCoin = view.findViewById<ImageView>(R.id.convert_image)
+        val numberCoin = view.findViewById<TextView>(R.id.convert_number)
+        val numberToConvert = view.findViewById<EditText>(R.id.search_number)
+        val imageConvert = view.findViewById<ImageView>(R.id.image_convert)
 
         monSuperAdapter = activity?.let { ArrayAdapter(it.baseContext, android.R.layout.simple_spinner_item, mainActivity.coins) }.also { adapter -> adapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
         spinner.adapter = monSuperAdapter
@@ -47,19 +53,31 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         viewModel.coin.observe(viewLifecycleOwner,coinObserver)
         viewModel.cryptoAPI()
 
-
-        buttonConvert.setOnClickListener{
+        // Function Convert crypto in Euro
+        fun Convert(){
             val coinFound : Coin? = mainActivity.coins.firstOrNull{ coin -> coin.name == crypto}
-            val textCoin = view.findViewById<TextView>(R.id.convert_coin)
-            val imageCoin = view.findViewById<ImageView>(R.id.convert_image)
-            val numberCoin = view.findViewById<TextView>(R.id.convert_number)
-            val numberToConvert = view.findViewById<TextView>(R.id.search_number)
-            val imageConvert = view.findViewById<ImageView>(R.id.image_convert)
             imageConvert.load(R.drawable.ic_round_convert_24)
             textCoin.text = numberToConvert.text.toString() + " " + coinFound?.name.toString()
             imageCoin.load(coinFound?.image)
             val convert : Double = numberToConvert.text.toString().toDouble() * coinFound!!.current_price
             numberCoin.text = "$convert $device"
+        }
+
+        // bind check virtual keyboard to call a specific function
+        fun EditText.onDone(callback: () -> Unit) {
+            setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    callback.invoke()
+                    true
+                }
+                false
+            }
+        }
+
+        // Call action to convert coin
+        numberToConvert.onDone { Convert() }
+        buttonConvert.setOnClickListener{
+            Convert()
         }
 
     }
