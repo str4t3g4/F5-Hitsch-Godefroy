@@ -25,8 +25,8 @@
 
         <TextView
             android:id="@+id/news_title"
-            android:layout_width="366dp"
-            android:layout_height="96dp"
+            android:layout_width="371dp"
+            android:layout_height="91dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:textAlignment="viewStart"
