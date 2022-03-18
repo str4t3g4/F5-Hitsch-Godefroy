@@ -11,12 +11,14 @@
         android:id="@+id/search_number"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/hint_search_numbers"
         android:ems="10"
+        android:hint="@string/hint_search_numbers"
         android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        android:autofillHints="@string/hint_search_numbers" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -32,7 +34,7 @@
         android:layout_width="333dp"
         android:layout_height="61dp"
         android:layout_marginTop="76dp"
-        android:text="Convert"
+        android:text="@string/convert_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/spinner" />
@@ -44,7 +46,8 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_convert" />
+        app:layout_constraintTop_toBottomOf="@+id/button_convert"
+        android:contentDescription="@string/convert_image" />
 
     <TextView
         android:id="@+id/convert_number"
@@ -78,7 +81,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convert_coin"
-        app:srcCompat="@drawable/ic_round_convert_24" />
+        app:srcCompat="@drawable/ic_round_convert_24"
+        android:contentDescription="@string/image_convert" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

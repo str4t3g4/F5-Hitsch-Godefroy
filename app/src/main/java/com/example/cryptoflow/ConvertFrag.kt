@@ -2,8 +2,8 @@ package com.example.cryptoflow
 
 import android.annotation.SuppressLint
 import android.content.Context
-
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import coil.load
 import com.example.cryptoflow.placeholder.Coin
+
 
 class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSelectedListener {
 
@@ -56,14 +57,22 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         viewModel.cryptoAPI()
 
         // Function Convert crypto in Euro
-        fun Convert(){
-            val coinFound : Coin? = mainActivity.coins.firstOrNull{ coin -> coin.name == crypto}
-            //imageConvert.load(R.drawable.ic_round_convert_24)
-            imageConvert.isVisible = true
-            textCoin.text = numberToConvert.text.toString() + " " + coinFound?.name.toString()
-            imageCoin.load(coinFound?.image)
-            val convert : Double = numberToConvert.text.toString().toDouble() * coinFound!!.current_price
-            numberCoin.text = "$convert $device"
+        fun convert(){
+
+            if (numberToConvert.text.isEmpty()){
+                val toast = Toast.makeText(context, "Merci de renseigner un nombre à convertir", Toast.LENGTH_SHORT)
+                toast.setGravity(Gravity.CENTER,20,30)
+                toast.show()
+            }
+            else{
+                val coinFound : Coin? = mainActivity.coins.firstOrNull{ coin -> coin.name == crypto}
+                imageConvert.isVisible = true
+                textCoin.text = numberToConvert.text.toString() + " " + coinFound?.name.toString()
+                imageCoin.load(coinFound?.image)
+                val convert : Double = numberToConvert.text.toString().toDouble() * coinFound!!.current_price
+                numberCoin.text = "$convert $device"
+            }
+
         }
 
         // bind check virtual keyboard to call a specific function
@@ -77,9 +86,9 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         }
 
         // Call action to convert coin
-        numberToConvert.onDone { Convert() }
+        numberToConvert.onDone { convert() }
         buttonConvert.setOnClickListener{
-            Convert()
+            convert()
         }
 
     }

@@ -17,7 +17,8 @@
         android:hint="@string/hint_search_numbers"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="@string/hint_search_numbers" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -34,7 +35,7 @@
         android:layout_height="63dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Convert"
+        android:text="@string/convert_button"
         app:layout_constraintStart_toEndOf="@+id/spinner"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +70,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_number" />
+        app:layout_constraintTop_toBottomOf="@+id/search_number"
+        android:contentDescription="@string/convert_image" />
 
     <ImageView
         android:id="@+id/image_convert"
@@ -79,7 +81,8 @@
         android:layout_marginTop="68dp"
         app:layout_constraintStart_toEndOf="@+id/convert_image"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:srcCompat="@drawable/ic_round_convert_land_arrows_24" />
+        app:srcCompat="@drawable/ic_round_convert_land_arrows_24"
+        android:contentDescription="@string/image_convert" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

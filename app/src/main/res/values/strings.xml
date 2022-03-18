@@ -8,4 +8,7 @@
     <string name="image_recycler_coin_item">logo_coin</string>
     <string name="image_recycler_news_item">image_article</string>
     <string name="hint_search_numbers">Convert Number</string>
+    <string name="convert_button">Convert</string>
+    <string name="convert_image">Image Coin</string>
+    <string name="image_convert">Image convert</string>
 </resources>
