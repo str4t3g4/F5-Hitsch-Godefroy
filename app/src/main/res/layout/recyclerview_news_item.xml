@@ -25,10 +25,12 @@
 
         <TextView
             android:id="@+id/news_title"
-            android:layout_width="371dp"
-            android:layout_height="91dp"
+            android:layout_width="359dp"
+            android:layout_height="89dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textAlignment="viewStart"
             android:textSize="19sp"
             android:textStyle="bold"
