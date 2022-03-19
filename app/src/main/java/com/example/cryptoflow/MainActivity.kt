@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val bottomMenu = findViewById<BottomNavigationView>(R.id.activity_main_bottom_navigation)
 
 
-        // Start MENU
+        // custom menu to select fragments
         bottomMenu.selectedItemId = R.id.action_home
         bottomMenu.setOnItemSelectedListener { menu ->
             when(menu.itemId){
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // End MENU
     }
 
-    // gestion des fragments
+    // fragment management
 
     private fun setFragment(fragment : Fragment){
         val frag = supportFragmentManager.beginTransaction()

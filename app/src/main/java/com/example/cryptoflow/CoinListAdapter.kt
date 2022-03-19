@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.cryptoflow.placeholder.Coin
-
+// Adapter for Coin
 class CoinListAdapter(private val coins: MutableList<Coin>) : RecyclerView.Adapter<RecyclerCoinViewHolder>() {
     private val currency : String = " €"
 

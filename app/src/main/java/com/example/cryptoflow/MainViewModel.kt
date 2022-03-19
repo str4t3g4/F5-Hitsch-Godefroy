@@ -18,7 +18,9 @@ class MainViewModel: ViewModel() {
     var news : MutableLiveData<News> = MutableLiveData(News(mutableListOf()))
 
     fun cryptoAPI() {
-        // Create a new coroutine to move the execution off the UI thread
+        val options = "order=market_cap_desc&per_page=10&page=1&sparkline=false"
+        val currency = "vs_currency=eur"
+        // Create a new coroutine to call API
         viewModelScope.launch(Dispatchers.IO) {
             val client = HttpClient(CIO){
                 install(JsonFeature){
@@ -29,7 +31,7 @@ class MainViewModel: ViewModel() {
                 }
             }
             try {
-                coin.postValue(client.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false'"))
+                coin.postValue(client.get("https://api.coingecko.com/api/v3/coins/markets?$currency&$options"))
             }
             catch (error : Exception){
                 println(error.printStackTrace())

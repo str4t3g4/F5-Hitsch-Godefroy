@@ -18,10 +18,6 @@ import com.example.cryptoflow.placeholder.Coin
 class AllCryptoFrag : Fragment() {
     private val viewModel: MainViewModel by viewModels()
     private lateinit var mainActivity: MainActivity
-
-
-    // Add RecyclerView member
-
     private var recyclerView: RecyclerView? = null
 
     override fun onAttach(context: Context) {
@@ -55,11 +51,11 @@ class AllCryptoFrag : Fragment() {
             mainActivity.coins.addAll(newCoin)
             recyclerView?.adapter?.notifyDataSetChanged()
             if(mainActivity.coins.size > 0) {
+                // delete progressBar
                 progressBar.visibility = View.GONE
             }
 
         }
         viewModel.coin.observe(viewLifecycleOwner,coinObserver)
-
     }
 }

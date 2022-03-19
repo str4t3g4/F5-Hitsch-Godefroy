@@ -58,17 +58,21 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
 
         // Function Convert crypto in Euro
         fun convert(){
-
+            // check if a number value is set
             if (numberToConvert.text.isEmpty()){
                 val toast = Toast.makeText(context, context?.getString(R.string.Toast_no_number_value), Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER,20,30)
                 toast.show()
             }
             else{
+                // recovery of the selected coin
                 val coinFound : Coin? = mainActivity.coins.firstOrNull{ coin -> coin.name == crypto}
+                // make the conversion icon visible
                 imageConvert.isVisible = true
+                // set the text with number and coin
                 textCoin.text = numberToConvert.text.toString() + " " + coinFound?.name.toString()
                 imageCoin.load(coinFound?.image)
+                // conversion to keep only one digit after the decimal point
                 val convert : Double = numberToConvert.text.toString().toDouble() * coinFound!!.current_price
                 val convertFormat = String.format("%.1f",convert)
                 numberCoin.text = "$convertFormat $device"
@@ -76,7 +80,7 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
 
         }
 
-        // bind check virtual keyboard to call a specific function
+        // bind the virtual keyboard (done) control to call a specific function
         fun EditText.onDone(callback: () -> Unit) {
             setOnEditorActionListener { _, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
