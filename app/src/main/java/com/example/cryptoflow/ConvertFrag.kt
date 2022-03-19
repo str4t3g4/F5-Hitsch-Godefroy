@@ -60,7 +60,7 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         fun convert(){
 
             if (numberToConvert.text.isEmpty()){
-                val toast = Toast.makeText(context, "Merci de renseigner un nombre à convertir", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(context, context?.getString(R.string.Toast_no_number_value), Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER,20,30)
                 toast.show()
             }

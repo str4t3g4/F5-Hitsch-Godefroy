@@ -11,4 +11,5 @@
     <string name="convert_button">Convert</string>
     <string name="convert_image">Image Coin</string>
     <string name="image_convert">Image convert</string>
+    <string name="Toast_no_number_value">Merci de renseigner un nombre à convertir</string>
 </resources>
