@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 import coil.load
 import com.example.cryptoflow.placeholder.Coin
 
-
+// Fragment to convert crypto's value in euros
 class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSelectedListener {
 
     private var monSuperAdapter: ArrayAdapter<Coin>? = null
@@ -59,7 +59,7 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         // Function Convert crypto in Euro
         fun convert(){
             // check if a number value is set
-            if (numberToConvert.text.isEmpty()){
+            if (numberToConvert.text.isEmpty()){ // if no number is given display a warning
                 val toast = Toast.makeText(context, context?.getString(R.string.Toast_no_number_value), Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER,20,30)
                 toast.show()

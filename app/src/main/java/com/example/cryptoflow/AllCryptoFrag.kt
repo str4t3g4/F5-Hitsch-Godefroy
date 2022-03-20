@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoflow.placeholder.Coin
 
-
+// main fragment to display crypto's flow
 class AllCryptoFrag : Fragment() {
     private val viewModel: MainViewModel by viewModels()
     private lateinit var mainActivity: MainActivity
@@ -31,6 +31,8 @@ class AllCryptoFrag : Fragment() {
     ): View {
 
         val view : View = inflater.inflate(R.layout.fragment_all_crypto_, container, false)
+
+        // recyclerview to display cryptos
         recyclerView = view.findViewById(R.id.recyclerview_coins)
         recyclerView?.setHasFixedSize(true)
         recyclerView?.layoutManager = LinearLayoutManager(context)
@@ -44,8 +46,9 @@ class AllCryptoFrag : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.cryptoAPI()
-        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar_crypto)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar_crypto) // progress bar while loading cryptos
 
+        // observer to track any update
         val coinObserver = Observer<List<Coin>> { newCoin ->
             mainActivity.coins.clear()
             mainActivity.coins.addAll(newCoin)

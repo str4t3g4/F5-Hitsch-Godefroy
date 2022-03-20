@@ -24,12 +24,13 @@ class NewsListAdapter(private val news: News, private val accessWeb: AccessWeb) 
     }
 
     override fun onBindViewHolder(holder: RecyclerNewsViewHolder, position: Int) {
+        // get the useful information from the api call result
         val date :OffsetDateTime = OffsetDateTime.now( ZoneOffset.UTC )
         holder.newsSite.text = news.articles[position].source?.name
         holder.newsTitle.text = news.articles[position].title
         holder.newsImage.load(news.articles[position].urlToImage)
         println(news.articles[position].urlToImage)
-        val minutes : String = Duration.between(OffsetDateTime.parse(news.articles[position].publishedAt),date).toMinutes().toString()  + " mins"
+        val minutes : String = Duration.between(OffsetDateTime.parse(news.articles[position].publishedAt),date).toMinutes().toString()  + " mins" // compute the time delay after publishing
         holder.newsMinute.text = minutes
         holder.newsLayout.setOnClickListener{
             accessWeb.onClick(news.articles[position].url.toString())

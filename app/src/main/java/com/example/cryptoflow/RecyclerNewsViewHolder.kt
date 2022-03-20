@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
+//binding the views
 class RecyclerNewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val newsSite: TextView = itemView.findViewById(R.id.news_site)
     val newsTitle : TextView = itemView.findViewById(R.id.news_title)

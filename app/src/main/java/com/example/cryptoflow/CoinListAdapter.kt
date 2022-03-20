@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.cryptoflow.placeholder.Coin
+
 // Adapter for Coin
 class CoinListAdapter(private val coins: MutableList<Coin>) : RecyclerView.Adapter<RecyclerCoinViewHolder>() {
     private val currency : String = " €"
@@ -22,9 +23,9 @@ class CoinListAdapter(private val coins: MutableList<Coin>) : RecyclerView.Adapt
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerCoinViewHolder, position: Int) {
-        holder.itemCoin.text = coins[position].name
-        holder.itemPrice.text = coins[position].current_price.toString() + currency
-        holder.itemImage.load(coins[position].image)
+        holder.itemCoin.text = coins[position].name // crypto's name
+        holder.itemPrice.text = coins[position].current_price.toString() + currency //crypto's price
+        holder.itemImage.load(coins[position].image) // crypto's symbol
     }
 
     override fun getItemCount(): Int {

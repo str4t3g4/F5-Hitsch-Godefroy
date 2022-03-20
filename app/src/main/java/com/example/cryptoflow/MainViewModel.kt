@@ -17,7 +17,7 @@ class MainViewModel: ViewModel() {
     var coin : MutableLiveData<List<Coin>> = MutableLiveData(listOf())
     var news : MutableLiveData<News> = MutableLiveData(News(mutableListOf()))
 
-    fun cryptoAPI() {
+    fun cryptoAPI() { // API call to get the top 10 crypto info & metadata
         val options = "order=market_cap_desc&per_page=10&page=1&sparkline=false"
         val currency = "vs_currency=eur"
         // Create a new coroutine to call API
@@ -40,7 +40,7 @@ class MainViewModel: ViewModel() {
         }
     }
 
-    fun newsAPI(){
+    fun newsAPI(){ // API call to get the news relatedto cryptos
         val apiKey = "6fa121bec8544fd8bc3632a1f53f25dc"
         val languages ="fr,en"
         viewModelScope.launch(Dispatchers.IO) {
