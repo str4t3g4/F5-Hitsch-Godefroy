@@ -6,6 +6,8 @@
 
 CryptoFlow is an android application that gives you information about crypto-currencies and a tool to convert them into standard currencies! It is also an application that allows you to follow the latest news about the crypto universe.
 
+Note : This application has been developed under Android Studio with a Pixel 4 API 29's emulator
+
 ## API 
 We used the following APIs:
 
