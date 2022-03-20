@@ -1,5 +1,9 @@
 # CryptoFlow
 
+<p align="center">
+  <img  src="https://i.imgur.com/h0AQlIj.jpg">
+</p>
+
 CryptoFlow is an android application that gives you information about crypto-currencies and a tool to convert them into standard currencies! It is also an application that allows you to follow the latest news about the crypto universe.
 
 ## API 
