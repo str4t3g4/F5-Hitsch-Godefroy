@@ -38,7 +38,7 @@ Finally the Media section allows you to find the latest news related to the cryp
   <img  src="https://i.imgur.com/oFNpW0F.png">
 </p>
 
-When you click on a news item, the application automatically redirects you to your favorite browser so to read its content!
+When you click on a news item, the application automatically redirects you to your favorite browser to read its content!
 
 ## Navigation
 The navigation menu at the bottom of the application allows you to easily navigate through the different panels. The active panel is highlighted with a different coloring from the other two inactive ones.
