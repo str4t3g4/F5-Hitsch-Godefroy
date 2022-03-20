@@ -24,11 +24,8 @@ The application is composed of 3 parts. The main screen, Flow, is the open-up sc
 
 
 ## Convert
-<<<<<<< HEAD
 The second part, Convert, allows you to quickly convert a number of cryptocurrencies into euros. The 10 cryptos present in Flow are available for conversion. In this part of the application, we don't make a call to the API but we use the one made on "Flow" to keep the different cryptos and their values.
-=======
-The second part, Convert, allows you to quickly give you an overview of the value of a given amount of cryptocurrency in euros. The same cryptos as in Flow are available for conversion.
->>>>>>> eec021c (fix spelling mistakes)
+
 
 <p align="center">
   <img  src="https://i.imgur.com/jukstPz.png">
