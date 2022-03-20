@@ -2,6 +2,15 @@
 
 CryptoFlow is an android application that gives you information about crypto-currencies and a tool to convert them into standard currencies! It is also an application that allows you to follow the latest news about the crypto universe.
 
+## API 
+We used the following APIs:
+
+### Flow & Convert:
+To retrieve the different cryptocurrencies and their prices, we chose to use the API of coingecko.com. Documentation: https://www.coingecko.com/fr/api/documentation
+
+### Media:
+For the Media part, we used the API of newsapi.org. To use this API, it is necessary to create an account and to use an API key when calling. Documentation: https://newsapi.org/docs
+
 ## Flow 
 The application is composed of 3 parts. The main screen, Flow, is the arrival screen when the app is opened. It gives access to the price of 10 cryptocurrencies.
 
@@ -11,7 +20,7 @@ The application is composed of 3 parts. The main screen, Flow, is the arrival sc
 
 
 ## Convert
-The second part, Convert, allows you to quickly convert a number of cryptocurrencies into euros. The 10 cryptos present in Flow are available for conversion.
+The second part, Convert, allows you to quickly convert a number of cryptocurrencies into euros. The 10 cryptos present in Flow are available for conversion. In this part of the application, we don't make a call to the API but we use the one made on "Flow" to keep the different cryptos and their values.
 
 <p align="center">
   <img  src="https://i.imgur.com/jukstPz.png">
