@@ -17,7 +17,7 @@ import com.example.cryptoflow.placeholder.Coin
 // Fragment to convert crypto's value in euros
 class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSelectedListener {
 
-    private var monSuperAdapter: ArrayAdapter<Coin>? = null
+    private var coinAdapter: ArrayAdapter<Coin>? = null
     private val viewModel: MainViewModel by viewModels()
     private lateinit var mainActivity: MainActivity
     private lateinit var crypto : String
@@ -41,8 +41,8 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         val imageConvert = view.findViewById<ImageView>(R.id.image_convert)
         imageConvert.isVisible = false
 
-        monSuperAdapter = activity?.let { ArrayAdapter(it.baseContext, android.R.layout.simple_spinner_item, mainActivity.coins) }.also { adapter -> adapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
-        spinner.adapter = monSuperAdapter
+        coinAdapter = activity?.let { ArrayAdapter(it.baseContext, android.R.layout.simple_spinner_item, mainActivity.coins) }.also { adapter -> adapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
+        spinner.adapter = coinAdapter
         spinner.onItemSelectedListener = this
 
 
@@ -50,7 +50,7 @@ class ConvertFrag : Fragment(R.layout.fragment_convert_), AdapterView.OnItemSele
         val coinObserver = Observer<List<Coin>> { newCoin ->
             mainActivity.coins.clear()
             mainActivity.coins.addAll(newCoin)
-            monSuperAdapter?.notifyDataSetChanged()
+            coinAdapter?.notifyDataSetChanged()
 
         }
         viewModel.coin.observe(viewLifecycleOwner,coinObserver)
